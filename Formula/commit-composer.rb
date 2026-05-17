@@ -11,7 +11,7 @@ class CommitComposer < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.4/commit-composer_0.1.4_darwin_amd64.tar.gz"
-      sha256 "74dbc7f16ff1e7191b0f72bd5832a0791c4c564b2c16b30cface4991b6c98a1c"
+      sha256 "bdf93f72a6c2b09560c6bfa855a266bc8af6c06dbb4a5871c35f9e2cfab7d9b9"
 
       define_method(:install) do
         bin.install "commit-composer"
@@ -25,7 +25,7 @@ class CommitComposer < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.4/commit-composer_0.1.4_darwin_arm64.tar.gz"
-      sha256 "da8fb9464f00eeb81737f5a9791fc115418009662227bd2901f4fe9d1360088e"
+      sha256 "48c16d8d808a4a7141427ba7510108d6b4ac31931ad484364a5536d362eb7e75"
 
       define_method(:install) do
         bin.install "commit-composer"
@@ -42,7 +42,7 @@ class CommitComposer < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.4/commit-composer_0.1.4_linux_amd64.tar.gz"
-      sha256 "1852c2113b56a88679b05c9e4e5a7dc9de237cb1ae3ecacb9d79ef53bf41b275"
+      sha256 "3f9ec9c5fbbdedbb6098ea16c188028a6d4c52caa118ef70e09ca8abb32f990c"
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
@@ -55,7 +55,7 @@ class CommitComposer < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.4/commit-composer_0.1.4_linux_arm64.tar.gz"
-      sha256 "a5243f61714fe220eb6b4ee1be7bfe175ae9668477ae0dd43bde2a89498dfc47"
+      sha256 "ae33c7dc63bfe0a252c79628f8f9bd5417be5cb07c3d6d41d1aeda2babf8051e"
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
