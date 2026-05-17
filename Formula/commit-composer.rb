@@ -5,24 +5,36 @@
 class CommitComposer < Formula
   desc "Mark and recompose git commits in a TUI, with Claude-driven multi-commit redesign."
   homepage "https://github.com/AndreySvinarenko/commit-composer"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.0/commit-composer_0.1.0_darwin_amd64.tar.gz"
-    sha256 "f6c80f455713df8370dfbd0e55fd6a8a27ad731f72d278a685d1929e50c5b44f"
+    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.1/commit-composer_0.1.1_darwin_amd64.tar.gz"
+    sha256 "dd5e181700d9d52caf807f693e94819011a59c03cecced80bc213d9a7ad7091f"
 
     define_method(:install) do
       bin.install "commit-composer"
+      # Ship the Claude Code plugin files so a single `brew install` gives
+      # users the binary AND the slash command / skill / launcher. The path
+      # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
+      # versions (brew refreshes the symlink on every upgrade), so users
+      # only need to run `/plugin marketplace add` once.
+      (share/"commit-composer").install ".claude-plugin"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.0/commit-composer_0.1.0_darwin_arm64.tar.gz"
-    sha256 "b3b21faad2b2e2b53248f50ca2235086d3a5f0a28927f2e7ea144c20a46fecde"
+    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.1/commit-composer_0.1.1_darwin_arm64.tar.gz"
+    sha256 "799a1e188df69f20f13f75dbff4b5f82142b4399bfef50ea380dda2075b5398d"
 
     define_method(:install) do
       bin.install "commit-composer"
+      # Ship the Claude Code plugin files so a single `brew install` gives
+      # users the binary AND the slash command / skill / launcher. The path
+      # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
+      # versions (brew refreshes the symlink on every upgrade), so users
+      # only need to run `/plugin marketplace add` once.
+      (share/"commit-composer").install ".claude-plugin"
     end
   end
 
