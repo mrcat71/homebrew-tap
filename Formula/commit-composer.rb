@@ -5,36 +5,66 @@
 class CommitComposer < Formula
   desc "Mark and recompose git commits in a TUI, with Claude-driven multi-commit redesign."
   homepage "https://github.com/AndreySvinarenko/commit-composer"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
-  depends_on :macos
 
-  if Hardware::CPU.intel?
-    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.2/commit-composer_0.1.2_darwin_amd64.tar.gz"
-    sha256 "286ff5d3a242581e6d32eb1a86407149cfc36fa568c6748369b9aa4f0f5dbc9e"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.3/commit-composer_0.1.3_darwin_amd64.tar.gz"
+      sha256 "bbfa7f6ccf406cdcf41bfa60e62b4e01fca52652661ae047be8e9a9d8c108722"
 
-    define_method(:install) do
-      bin.install "commit-composer"
-      # Ship the Claude Code plugin files so a single `brew install` gives
-      # users the binary AND the slash command / skill / launcher. The path
-      # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
-      # versions (brew refreshes the symlink on every upgrade), so users
-      # only need to run `/plugin marketplace add` once.
-      (share/"commit-composer").install ".claude-plugin"
+      define_method(:install) do
+        bin.install "commit-composer"
+        # Ship the Claude Code plugin files so a single `brew install` gives
+        # users the binary AND the slash command / skill / launcher. The path
+        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
+        # versions (brew refreshes the symlink on every upgrade), so users
+        # only need to run `/plugin marketplace add` once.
+        (share/"commit-composer").install ".claude-plugin"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.3/commit-composer_0.1.3_darwin_arm64.tar.gz"
+      sha256 "c7f0f9e00f211ef877e14d99a07783c7800095811989eb6a90b255b7324628c8"
+
+      define_method(:install) do
+        bin.install "commit-composer"
+        # Ship the Claude Code plugin files so a single `brew install` gives
+        # users the binary AND the slash command / skill / launcher. The path
+        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
+        # versions (brew refreshes the symlink on every upgrade), so users
+        # only need to run `/plugin marketplace add` once.
+        (share/"commit-composer").install ".claude-plugin"
+      end
     end
   end
-  if Hardware::CPU.arm?
-    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.2/commit-composer_0.1.2_darwin_arm64.tar.gz"
-    sha256 "338f1a73c0d3f64a370efda828522c14411070838100d089a6662f53a60fc0ab"
 
-    define_method(:install) do
-      bin.install "commit-composer"
-      # Ship the Claude Code plugin files so a single `brew install` gives
-      # users the binary AND the slash command / skill / launcher. The path
-      # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
-      # versions (brew refreshes the symlink on every upgrade), so users
-      # only need to run `/plugin marketplace add` once.
-      (share/"commit-composer").install ".claude-plugin"
+  on_linux do
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.3/commit-composer_0.1.3_linux_amd64.tar.gz"
+      sha256 "140c799e9b3704a294b0590b4f6f1ce8c4c3d9ddd6a2b0204a580510464aff40"
+      define_method(:install) do
+        bin.install "commit-composer"
+        # Ship the Claude Code plugin files so a single `brew install` gives
+        # users the binary AND the slash command / skill / launcher. The path
+        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
+        # versions (brew refreshes the symlink on every upgrade), so users
+        # only need to run `/plugin marketplace add` once.
+        (share/"commit-composer").install ".claude-plugin"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.3/commit-composer_0.1.3_linux_arm64.tar.gz"
+      sha256 "1bd413e1ca4db7a304f0954cceea95af66c67755d19a68a98503fac03898f907"
+      define_method(:install) do
+        bin.install "commit-composer"
+        # Ship the Claude Code plugin files so a single `brew install` gives
+        # users the binary AND the slash command / skill / launcher. The path
+        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
+        # versions (brew refreshes the symlink on every upgrade), so users
+        # only need to run `/plugin marketplace add` once.
+        (share/"commit-composer").install ".claude-plugin"
+      end
     end
   end
 
