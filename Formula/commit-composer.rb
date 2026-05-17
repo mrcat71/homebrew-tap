@@ -5,13 +5,13 @@
 class CommitComposer < Formula
   desc "Mark and recompose git commits in a TUI, with Claude-driven multi-commit redesign."
   homepage "https://github.com/AndreySvinarenko/commit-composer"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.1/commit-composer_0.1.1_darwin_amd64.tar.gz"
-    sha256 "dd5e181700d9d52caf807f693e94819011a59c03cecced80bc213d9a7ad7091f"
+    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.2/commit-composer_0.1.2_darwin_amd64.tar.gz"
+    sha256 "286ff5d3a242581e6d32eb1a86407149cfc36fa568c6748369b9aa4f0f5dbc9e"
 
     define_method(:install) do
       bin.install "commit-composer"
@@ -24,8 +24,8 @@ class CommitComposer < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.1/commit-composer_0.1.1_darwin_arm64.tar.gz"
-    sha256 "799a1e188df69f20f13f75dbff4b5f82142b4399bfef50ea380dda2075b5398d"
+    url "https://github.com/AndreySvinarenko/commit-composer/releases/download/v0.1.2/commit-composer_0.1.2_darwin_arm64.tar.gz"
+    sha256 "338f1a73c0d3f64a370efda828522c14411070838100d089a6662f53a60fc0ab"
 
     define_method(:install) do
       bin.install "commit-composer"
