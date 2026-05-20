@@ -5,21 +5,21 @@
 class Opvar < Formula
   desc "Export 1Password secrets matched by tag as shell exports or JSON."
   homepage "https://github.com/mrcat71/opvar"
-  version "0.1.0"
+  version "0.1.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/mrcat71/opvar/releases/download/v0.1.0/opvar_0.1.0_darwin_amd64.tar.gz"
-      sha256 "70d228b5b173e6afc8928922490d156317503ac4e7bc1c1971a3f7d119863ea5"
+      url "https://github.com/mrcat71/opvar/releases/download/v0.1.1/opvar_0.1.1_darwin_amd64.tar.gz"
+      sha256 "e3e0ed40aeaceb617af97bda19b7f1a4564978e7a671cfcaa576901d181c1915"
 
       define_method(:install) do
         bin.install "opvar"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/mrcat71/opvar/releases/download/v0.1.0/opvar_0.1.0_darwin_arm64.tar.gz"
-      sha256 "770d4fcbcfdbe92f1cf72bda9754acd4f2c9133917ea9aa27c62306de80174ba"
+      url "https://github.com/mrcat71/opvar/releases/download/v0.1.1/opvar_0.1.1_darwin_arm64.tar.gz"
+      sha256 "b2c4c8900b4a898f6bf058d9d18a2d20fa685cc9fba01261bdb545aba011c4b7"
 
       define_method(:install) do
         bin.install "opvar"
@@ -29,15 +29,15 @@ class Opvar < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mrcat71/opvar/releases/download/v0.1.0/opvar_0.1.0_linux_amd64.tar.gz"
-      sha256 "f1c2c86a70807cf73386002673f29066834bb0ed12ad7e8479985b8d30ed9b80"
+      url "https://github.com/mrcat71/opvar/releases/download/v0.1.1/opvar_0.1.1_linux_amd64.tar.gz"
+      sha256 "c5dec3f2c925d9f05dc73e518e9a65056916131638bb1d1a0d3a05b2f34ba04d"
       define_method(:install) do
         bin.install "opvar"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mrcat71/opvar/releases/download/v0.1.0/opvar_0.1.0_linux_arm64.tar.gz"
-      sha256 "31b7f58ced7710ad88e2b72ba22bf0fff34c884f1ac6e2346db0785a752b9309"
+      url "https://github.com/mrcat71/opvar/releases/download/v0.1.1/opvar_0.1.1_linux_arm64.tar.gz"
+      sha256 "e8ee490a2cbce79b98c1c199994e2d93465392e25bc0350536c869a94f1858e9"
       define_method(:install) do
         bin.install "opvar"
       end
