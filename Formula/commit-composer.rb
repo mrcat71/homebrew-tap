@@ -5,13 +5,13 @@
 class CommitComposer < Formula
   desc "Mark and recompose git commits in a TUI, with Claude-driven multi-commit redesign."
   homepage "https://github.com/mrcat71/commit-composer"
-  version "0.1.7"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.7/commit-composer_0.1.7_darwin_amd64.tar.gz"
-      sha256 "61c584d774bcbfdff30ae155766e04ec95b782bea7fe5d07a87ccbbff8304738"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.2.0/commit-composer_0.2.0_darwin_amd64.tar.gz"
+      sha256 "4b33f43b7801f3ab82eade42cf60bad2a89d2ff1b55b366043ff4e5087847fe7"
 
       define_method(:install) do
         bin.install "commit-composer"
@@ -24,8 +24,8 @@ class CommitComposer < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.7/commit-composer_0.1.7_darwin_arm64.tar.gz"
-      sha256 "156fabf221f2d030584b15cad719d3b9738311751f08af71205c7d8d817e2676"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.2.0/commit-composer_0.2.0_darwin_arm64.tar.gz"
+      sha256 "5ef09027a1161df0c58ba5b20032ee7e96cb603b01613469955721efea6c68f8"
 
       define_method(:install) do
         bin.install "commit-composer"
@@ -41,8 +41,8 @@ class CommitComposer < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.7/commit-composer_0.1.7_linux_amd64.tar.gz"
-      sha256 "487c577d81f476c52983b0636c2f156c1bd1867cf0e7b1b3e86337798afad711"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.2.0/commit-composer_0.2.0_linux_amd64.tar.gz"
+      sha256 "3e2ad586ea52f6f48a7af81ee624705d50766d9967c8faaa909b9e2feed7741f"
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
@@ -54,8 +54,8 @@ class CommitComposer < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.1.7/commit-composer_0.1.7_linux_arm64.tar.gz"
-      sha256 "38831b27c4ac8ff396ba9bad1de953b11f93d8788634995947a5458efdf00a8c"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.2.0/commit-composer_0.2.0_linux_arm64.tar.gz"
+      sha256 "4fb536a45dc60570a8bbaefe0d6cf4ea9683058d60257756860782ec0b5c4dea"
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
