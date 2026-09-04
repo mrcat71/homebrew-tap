@@ -5,65 +5,73 @@
 class CommitComposer < Formula
   desc "Mark and recompose git commits in a TUI, with Claude-driven multi-commit redesign."
   homepage "https://github.com/mrcat71/commit-composer"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.3.0/commit-composer_0.3.0_darwin_amd64.tar.gz"
-      sha256 "23f16d6fc913724561763a722e0c67cc348ef09d06e6426292b4ca840d3a3f8d"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.4.0/commit-composer_0.4.0_darwin_amd64.tar.gz"
+      sha256 "1140cfcab6ed6aa61c1e764da8361f8dfd35616562773edc887a5344ddcc1ebb"
 
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
-        # users the binary AND the slash command / skill / launcher. The path
-        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
-        # versions (brew refreshes the symlink on every upgrade), so users
+        # users the binary AND the skills / launcher. All three directories are
+        # required: the manifests live in .claude-plugin/, but Claude Code scans
+        # skills/ at the plugin root and the binary resolves its launcher from
+        # scripts/. The path `/opt/homebrew/share/commit-composer/` is stable
+        # across versions (brew refreshes the symlink on every upgrade), so users
         # only need to run `/plugin marketplace add` once.
-        (share/"commit-composer").install ".claude-plugin"
+        (share/"commit-composer").install ".claude-plugin", "skills", "scripts"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.3.0/commit-composer_0.3.0_darwin_arm64.tar.gz"
-      sha256 "09653cf43e23d4e5df1f954ed9e781f45400b3371c9c06eee22a0172711e181c"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.4.0/commit-composer_0.4.0_darwin_arm64.tar.gz"
+      sha256 "210a33aae9075fc016d11466a00d9c26b4bc7a5d293408f1a8ed97c4583e2fbd"
 
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
-        # users the binary AND the slash command / skill / launcher. The path
-        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
-        # versions (brew refreshes the symlink on every upgrade), so users
+        # users the binary AND the skills / launcher. All three directories are
+        # required: the manifests live in .claude-plugin/, but Claude Code scans
+        # skills/ at the plugin root and the binary resolves its launcher from
+        # scripts/. The path `/opt/homebrew/share/commit-composer/` is stable
+        # across versions (brew refreshes the symlink on every upgrade), so users
         # only need to run `/plugin marketplace add` once.
-        (share/"commit-composer").install ".claude-plugin"
+        (share/"commit-composer").install ".claude-plugin", "skills", "scripts"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.3.0/commit-composer_0.3.0_linux_amd64.tar.gz"
-      sha256 "61f88fbc5478235a270ff0cd0e83abbdee0f6f38c85c6c8f871149ac15353963"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.4.0/commit-composer_0.4.0_linux_amd64.tar.gz"
+      sha256 "2efb93a32666387177608839c999df681f342a9f1e7a20ab875eb2582f94c461"
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
-        # users the binary AND the slash command / skill / launcher. The path
-        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
-        # versions (brew refreshes the symlink on every upgrade), so users
+        # users the binary AND the skills / launcher. All three directories are
+        # required: the manifests live in .claude-plugin/, but Claude Code scans
+        # skills/ at the plugin root and the binary resolves its launcher from
+        # scripts/. The path `/opt/homebrew/share/commit-composer/` is stable
+        # across versions (brew refreshes the symlink on every upgrade), so users
         # only need to run `/plugin marketplace add` once.
-        (share/"commit-composer").install ".claude-plugin"
+        (share/"commit-composer").install ".claude-plugin", "skills", "scripts"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/mrcat71/commit-composer/releases/download/v0.3.0/commit-composer_0.3.0_linux_arm64.tar.gz"
-      sha256 "1cf125e1690c9414e0642561e12ea1bb2ee0a53aef9eef0160171647c7857b67"
+      url "https://github.com/mrcat71/commit-composer/releases/download/v0.4.0/commit-composer_0.4.0_linux_arm64.tar.gz"
+      sha256 "cf8fa9f31fee90455dba680b6ff3744b265851d52d416edd9477a711e41f32a2"
       define_method(:install) do
         bin.install "commit-composer"
         # Ship the Claude Code plugin files so a single `brew install` gives
-        # users the binary AND the slash command / skill / launcher. The path
-        # `/opt/homebrew/share/commit-composer/.claude-plugin/` is stable across
-        # versions (brew refreshes the symlink on every upgrade), so users
+        # users the binary AND the skills / launcher. All three directories are
+        # required: the manifests live in .claude-plugin/, but Claude Code scans
+        # skills/ at the plugin root and the binary resolves its launcher from
+        # scripts/. The path `/opt/homebrew/share/commit-composer/` is stable
+        # across versions (brew refreshes the symlink on every upgrade), so users
         # only need to run `/plugin marketplace add` once.
-        (share/"commit-composer").install ".claude-plugin"
+        (share/"commit-composer").install ".claude-plugin", "skills", "scripts"
       end
     end
   end
